@@ -15,3 +15,14 @@
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
 </script>
+<section id="articles" class="reveal delay-1">
+    ...
+</section>
+
+<section id="about" class="reveal delay-2">
+    ...
+</section>
+
+<section id="contact" class="reveal delay-3">
+    ...
+</section>
