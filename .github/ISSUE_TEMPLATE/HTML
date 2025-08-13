@@ -1,28 +1,93 @@
-<script>
-    function revealOnScroll() {
-        const elements = document.querySelectorAll('.reveal');
-        elements.forEach(el => {
-            const windowHeight = window.innerHeight;
-            const elementTop = el.getBoundingClientRect().top;
-            const elementVisible = 100;
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="مدونة إعلامية ثقافية عربية تقدم مقالات وأخبار ثقافية وفنية وأدبية.">
+    <title>مدونة إعلامية ثقافية</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>مدونة الثقافة العربية</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">الصفحة الرئيسية</a></li>
+                <li><a href="#articles">مقالات</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            if (elementTop < windowHeight - elementVisible) {
-                el.classList.add('active');
-            }
-        });
-    }
+    <!-- قسم الترحيب -->
+    <section id="home" class="hero reveal">
+        <h2>أهلاً بكم في مدونتنا الثقافية</h2>
+        <p>استمتعوا بالمحتوى العربي الثقافي المميز.</p>
+    </section>
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-</script>
-<section id="articles" class="reveal delay-1">
-    ...
-</section>
+    <!-- قسم المقالات -->
+    <section id="articles" class="reveal-left delay-1">
+        <h2>أحدث المقالات</h2>
+        <div class="article reveal delay-1">
+            <h3>عنوان المقال الأول</h3>
+            <p>محتوى المقال الأول حول الأدب العربي وفنونه.</p>
+            <a href="#">اقرأ المزيد...</a>
+        </div>
+        <div class="article reveal delay-2">
+            <h3>عنوان المقال الثاني</h3>
+            <p>محتوى المقال الثاني عن تاريخ الثقافة العربية.</p>
+            <a href="#">اقرأ المزيد...</a>
+        </div>
+        <div class="article reveal delay-3">
+            <h3>عنوان المقال الثالث</h3>
+            <p>محتوى المقال الثالث عن الفنون والموسيقى العربية.</p>
+            <a href="#">اقرأ المزيد...</a>
+        </div>
+    </section>
 
-<section id="about" class="reveal delay-2">
-    ...
-</section>
+    <!-- قسم من نحن -->
+    <section id="about" class="reveal-right delay-2">
+        <h2>من نحن</h2>
+        <p>نحن مدونة تهدف إلى نشر المعرفة الثقافية والفنية عبر مقالات ومراجعات تفصيلية حول الثقافة العربية.</p>
+    </section>
 
-<section id="contact" class="reveal delay-3">
-    ...
-</section>
+    <!-- قسم اتصل بنا -->
+    <section id="contact" class="reveal-left delay-3">
+        <h2>اتصل بنا</h2>
+        <form class="reveal delay-4">
+            <label for="name">الاسم:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">الرسالة:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">إرسال</button>
+        </form>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="reveal">
+        <p>&copy; 2025 مدونة الثقافة العربية. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- JavaScript لتفعيل التأثيرات -->
+    <script>
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+            elements.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
